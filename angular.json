@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "peachtree-bank"
+    }
+  },
+  "defaultProject": "peachtree-bank",
+  "cli": {
+    "analytics": "7e9aae3d-582e-4cbf-981f-42f7489657d3"
+  }
 }
