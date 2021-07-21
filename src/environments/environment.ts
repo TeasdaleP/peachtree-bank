@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  transactionalApi: 'https://r9vdzv10vd.execute-api.eu-central-1.amazonaws.com/dev/transactions'
+  transactionalApi: 'assets/data/transactions.json'
 };
 
 /*

@@ -13,8 +13,8 @@ export class TransactionEffects {
         ofType<transaction.LoadTransaction>(transaction.LOAD_TRANSACTION),
         mergeMap( () => {
             return this.transactionService.getTransactions$().pipe(
-                map(data => {
-                    return new transaction.LoadTransactionSuccess(data);
+                map(response => {
+                    return new transaction.LoadTransactionSuccess(response.data);
                 }),
                 catchError(error => of(new transaction.TransactionFailure(error)))
             )

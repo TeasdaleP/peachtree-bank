@@ -2,7 +2,7 @@ import { fakeAsync, TestBed } from "@angular/core/testing";
 import { MockStore, provideMockStore } from "@ngrx/store/testing";
 import { provideMockActions } from "@ngrx/effects/testing";
 import { Observable, of, throwError } from "rxjs";
-import { TransactionService } from "src/app/services/transaction.service";
+import { DataResponse, TransactionService } from "src/app/services/transaction.service";
 import { State } from "..";
 import { TransactionEffects } from './transaction.effects';
 import { mockTransactions } from "src/app/helpers/mock.data";
@@ -47,7 +47,7 @@ describe('Transaction Effects', () => {
         const spy = spyOn(service, 'getTransactions$').and.callThrough();
         actions$ = of(new actions.LoadTransaction());
         effects.loadTransactions$.subscribe((result) => {
-            expect(result).toEqual(new actions.LoadTransactionSuccess(mockTransactions))
+            expect(result.type).toBe(actions.LOAD_TRANSACTION_SUCCESS)
             expect(spy).toHaveBeenCalledTimes(1);
             done();
         })
@@ -57,7 +57,7 @@ describe('Transaction Effects', () => {
         const spy = spyOn(service, 'getTransactions$').and.returnValue(throwError('Error'))
         actions$ = of(new actions.LoadTransaction());
         effects.loadTransactions$.subscribe((result) => {
-            expect(result).toEqual(new actions.TransactionFailure('Error'));
+            expect(result.type).toEqual(actions.TRANSACTION_FAILURE);
             expect(spy).toHaveBeenCalledTimes(1);
         })
     }));
