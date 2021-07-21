@@ -1,0 +1,17 @@
+.home {
+    &-header {
+       background-color: white;
+       padding: 0.625em 0.625em 0.625em 0.625em; 
+    }
+
+    &-body {
+       
+    }
+
+    &-footer {
+        position: fixed;
+        background-color: white;
+        padding: 0.625em 0 0.625em 0;
+        bottom: 0;
+    }
+}

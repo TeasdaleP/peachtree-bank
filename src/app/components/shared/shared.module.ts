@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from "@angular/router";
+import { BbUIModule } from "../bb-ui/bb-ui.module";
 
 const SHARED_COMPONENTS = [
    
@@ -12,6 +13,7 @@ const SHARED_COMPONENTS = [
     declarations: SHARED_COMPONENTS,
     imports: [
         CommonModule,
+        BbUIModule,
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,

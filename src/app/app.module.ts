@@ -13,7 +13,7 @@ import { BbUIModule } from './components/bb-ui/bb-ui.module';
 
 @NgModule({
   declarations: [
-    AppComponent  
+    AppComponent 
   ],
   imports: [
     BrowserModule,
