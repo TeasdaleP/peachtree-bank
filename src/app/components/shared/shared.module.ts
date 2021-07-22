@@ -5,8 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from "@angular/router";
 import { BbUIModule } from "../bb-ui/bb-ui.module";
 
+import { TransferComponent } from "./transfer/transfer.component";
+import { PanelComponent } from "./panel/panel.component";
+
 const SHARED_COMPONENTS = [
-   
+   TransferComponent,
+   PanelComponent
 ]
 
 @NgModule({

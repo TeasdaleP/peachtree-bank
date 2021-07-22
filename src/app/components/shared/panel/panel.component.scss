@@ -1,0 +1,28 @@
+@import '../../../../styles.scss';
+
+.panel {
+    width: 100%;
+    background-color: white;
+    border-radius: 1em 1em 0 0;
+
+    &-header {
+        color: white;
+        border-radius: 1em 1em 0 0;
+        background-color: $primary-blue;
+        padding: 0.5em 1em 0.5em 1em;
+    }
+
+    &-icon {
+        padding: 0 0.5em 0 0.5em;
+    }
+
+    &-heading {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 2em;
+    }
+
+    &-body {
+        padding: 1em 1em 1em 1em;
+    }
+}

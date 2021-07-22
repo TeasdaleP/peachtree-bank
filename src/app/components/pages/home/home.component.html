@@ -3,7 +3,12 @@
         <app-logo></app-logo>
     </div>
     <div class="home-body">
-
+        <div class="home-transfer">
+            <app-transfer [balance]="currentBalance" (transfer)="handleTransfer($event)"></app-transfer>
+        </div>
+        <div class="home-transfer">
+            This is another component
+        </div>
     </div>
     <div class="home-footer">
         <app-footer></app-footer>

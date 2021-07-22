@@ -5,7 +5,13 @@
     }
 
     &-body {
-       
+        display: flex;
+        justify-content: center;
+    }
+
+    &-transfer {
+        width: 40%;
+        margin: 2rem;
     }
 
     &-footer {

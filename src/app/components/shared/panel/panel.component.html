@@ -1,0 +1,9 @@
+<div class="panel">
+    <div class="panel-header">
+        <i class="panel-icon {{ icon }}" *ngIf="icon"></i>
+        <span class="panel-heading" *ngIf="title">{{ title | titlecase }}</span>
+    </div>
+    <div class="panel-body">
+        <ng-content></ng-content>
+    </div>
+</div>

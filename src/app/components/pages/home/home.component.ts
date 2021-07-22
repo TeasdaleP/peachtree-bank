@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  public currentBalance: number = 987.65;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public handleTransfer($event) {
+    console.log($event);
   }
 
 }
