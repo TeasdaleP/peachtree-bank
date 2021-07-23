@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 export interface Transfer {
   account: string;
@@ -12,13 +13,23 @@ export interface Transfer {
 })
 export class TransferComponent implements OnInit {
   @Input() balance: number;
-  public title: string = 'make transfer';
-  public icon: string = 'fas fa-credit-card';
-  @Output() transfer: EventEmitter<Transfer> = new EventEmitter<Transfer>();
+  @Output() transferred: EventEmitter<Transfer> = new EventEmitter<Transfer>();
+  public transfer: Transfer;
+  public title: string;
+  public icon: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.transfer = { amount: undefined, account: undefined };
+    this.title = 'make transfer';
+    this.icon = 'fas fa-credit-card';
   }
 
+  public onSubmit(transferForm: NgForm) {
+    // need to handle the data and emit to parent component
+    console.log(this.transfer.account);
+    console.log(this.transfer.amount);
+    
+  }
 }

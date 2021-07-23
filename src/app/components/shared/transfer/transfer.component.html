@@ -1,3 +1,47 @@
 <app-panel [title]="title" [icon]="icon">
-    <div>Hello, this is the panel</div>
+    <form #transferForm="ngForm" (ngSubmit)="onSubmit(transferForm)">
+        
+        <div class="transfer-form">
+            <label class="transfer-form-label">From Account</label>
+            <input class="transfer-form-input" placeholder="My Personal Account: {{ balance | currency: 'EUR' }}" disabled>
+        </div>
+        
+        <div class="transfer-form">
+            <label class="transfer-form-label">To Account</label>
+            <input
+                type ="text"
+                name="transferAccount"
+                class="transfer-form-input" 
+                #transferAccount="ngModel"
+                placeholder="type an account name"
+                [(ngModel)]="transfer.account"
+                required
+                [class.transfer-form-input--error]="transferAccount.invalid && transferAccount.touched"
+            >
+            <small class="transfer-error" *ngIf="transferAccount.invalid && transferAccount.touched">This field is required</small>
+        </div>
+        
+        <div class="transfer-form">
+            <label class="transfer-form-label">Amount</label>
+            <input
+                type="number"
+                name="transferAmount"
+                class="transfer-form-input"
+                #transferAmount="ngModel"
+                placeholder="specify the amount"
+                [(ngModel)]="transfer.amount"
+                required
+                [class.transfer-form-input--error]="transferAmount.invalid && transferAmount.touched"
+                >
+            <ng-container *ngIf="transferAmount.invalid && transferAmount.touched">
+                <small class="transfer-error" *ngIf="transferAmount.errors.required">The amount is required</small>
+                <!-- Need to validate if the amount isnt negative -->
+                <!-- Need to ensure the balance doesnt go below £500 -->
+            </ng-container>
+        </div>
+        
+        <div class="transfer-button" [class.transfer-button-disabled]="!transferForm.valid">
+            <app-submit-button></app-submit-button>
+        </div>
+    </form>
 </app-panel>

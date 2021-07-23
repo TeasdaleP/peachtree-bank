@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TransferComponent } from './transfer.component';
 
-describe('TransferComponent', () => {
+describe('Transfer Component', () => {
   let component: TransferComponent;
   let fixture: ComponentFixture<TransferComponent>;
 
@@ -22,4 +22,6 @@ describe('TransferComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  
 });

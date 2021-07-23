@@ -1,12 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400;500;600;700;800&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
-
 @import './app/components/bb-ui/styles/main.scss';
+
+$red: #DC143C;
+$orange: #F9842C;
+$grey: #E9ECEF;
+$dark-grey: #D1D4D7;
 
 body {
     font-family: 'Lexend', sans-serif;;
-    background-color: lightgray;
+    background-color: $grey;
     margin: 0;
+}
+
+button {
+    color: white;
+    background-color: $orange;
+    border-radius: 0.25em;
+    border: 0.0625em solid $dark-grey;
+    font-size: 0.875em;
+    line-height: 1.25em;
+    padding: 0.5em 1em;
+
+    &:hover {
+        color: $orange;
+        background: white;
+        border: 0.0625em solid $orange;
+    }
 }
