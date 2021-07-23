@@ -3,7 +3,7 @@
         
         <div class="transfer-form">
             <label class="transfer-form-label">From Account</label>
-            <input class="transfer-form-input" placeholder="My Personal Account: {{ balance | currency: 'EUR' }}" disabled>
+            <input class="transfer-form-input" placeholder="My Personal Account: {{ balance | async | currency: 'EUR' }}" disabled>
         </div>
         
         <div class="transfer-form">
