@@ -1,6 +1,5 @@
 <app-panel [title]="title" [icon]="icon">
     <form #transferForm="ngForm" (ngSubmit)="onSubmit(transferForm)">
-        
         <div class="transfer-form">
             <label class="transfer-form-label">From Account</label>
             <input class="transfer-form-input" placeholder="My Personal Account: {{ balance | async | currency: 'EUR' }}" disabled>

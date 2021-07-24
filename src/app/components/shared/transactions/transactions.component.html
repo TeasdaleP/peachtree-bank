@@ -1,0 +1,13 @@
+<app-panel [title]="title" [icon]="icon">
+    <ng-container *ngFor="let transaction of transactions | async">
+            
+        <div class="transaction">
+            <div class="transaction-inner" [ngClass]="transaction.transaction.creditDebitIndicator === 'CRDT' ? 'transaction-credit' : 'transaction-debit' ">
+                <small>
+                    {{ transaction | json }}
+                </small>
+            </div>
+        </div>
+        
+    </ng-container>
+</app-panel>
