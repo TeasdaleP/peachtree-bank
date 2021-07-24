@@ -23,7 +23,11 @@
         
         <div class="transfer-form">
             <label class="transfer-form-label">Amount</label>
-            <div class="transfer-form-group" [class.transfer-form-group--error]="transferAmount.invalid && transferAmount.touched">
+            <div 
+                class="transfer-form-group" 
+                [class.transfer-form-group--error]="transferAmount.touched && transferAmount.errors && transferAmount.errors.required"
+                [class.transfer-form-group--error]="transferAmount.touched && transferAmount.errors && transferAmount.errors.maxTransfer"
+            >
                 <span class="transfer-form-prefix"><i class="fas fa-euro-sign"></i></span>
                 <input 
                     type="number"
@@ -43,8 +47,9 @@
             </ng-container>
         </div>
         
-        <div class="transfer-button" [class.transfer-button-disabled]="!transferForm.valid">
+        <div class="transfer-button">
             <app-submit-button></app-submit-button>
         </div>
     </form>
+    <app-review [transfer]="transfer"></app-review>
 </app-panel>

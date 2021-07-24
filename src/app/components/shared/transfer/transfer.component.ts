@@ -1,11 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
-
-export interface Transfer {
-  account: string;
-  amount: number;
-}
+import { Transfer } from 'src/app/helpers/transfer.interface';
 
 @Component({
   selector: 'app-transfer',

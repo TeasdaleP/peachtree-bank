@@ -1,0 +1,23 @@
+<div class="modal" [ngClass]="{ 'show': open, 'hidden': !open }">
+    <div class="modal-body">
+        <div class="modal-inner">
+            <div class="review-header"><span class="review-emphasis">Review</span> Transfer</div>
+            <hr>
+            <div class="review-subheader">Are you ready to send out this transfer?</div>
+            <div class="review-group">
+                <div class="review-emphasis">It will be sent to account:</div>
+                <div class="review-item">{{ transfer.account | titlecase }}</div>
+            </div>
+            <div class="review-group">
+                <div class="review-emphasis">With the amount of:</div>
+                <div class="review-item">{{ transfer.amount | currency: 'EUR' }}</div>
+            </div>
+            <hr>
+            <div class="review-button">
+                <button class="review-button-close" (click)="close()">Close</button>
+                <app-submit-button></app-submit-button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-background" [ngClass]="{ 'show': open, 'hidden': !open }" ></div>
