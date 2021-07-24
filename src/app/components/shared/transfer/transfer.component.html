@@ -18,25 +18,28 @@
                 required
                 [class.transfer-form-input--error]="transferAccount.invalid && transferAccount.touched"
             >
-            <small class="transfer-error" *ngIf="transferAccount.invalid && transferAccount.touched">This field is required</small>
+            <small class="transfer-error" *ngIf="transferAccount.invalid && transferAccount.touched">The account is required</small>
         </div>
         
         <div class="transfer-form">
             <label class="transfer-form-label">Amount</label>
-            <input
-                type="number"
-                name="transferAmount"
-                class="transfer-form-input"
-                #transferAmount="ngModel"
-                placeholder="specify the amount"
-                [(ngModel)]="transfer.amount"
-                required
-                [class.transfer-form-input--error]="transferAmount.invalid && transferAmount.touched"
+            <div class="transfer-form-group" [class.transfer-form-group--error]="transferAmount.invalid && transferAmount.touched">
+                <span class="transfer-form-prefix"><i class="fas fa-euro-sign"></i></span>
+                <input 
+                    type="number"
+                    min="0"
+                    class="transfer-form-amount"
+                    name="transferAmount"
+                    #transferAmount="ngModel"
+                    placeholder="specify the amount"
+                    [appTransferValidation]
+                    [(ngModel)]="transfer.amount"
+                    required
                 >
-            <ng-container *ngIf="transferAmount.invalid && transferAmount.touched">
-                <small class="transfer-error" *ngIf="transferAmount.errors.required">The amount is required</small>
-                <!-- Need to validate if the amount isnt negative -->
-                <!-- Need to ensure the balance doesnt go below £500 -->
+            </div>
+            <ng-container *ngIf="transferAmount.touched">
+                <small class="transfer-error" *ngIf="transferAmount.errors && transferAmount.errors.required">The amount is required</small>
+                <small class="transfer-error" *ngIf="transferAmount.errors && transferAmount.errors.maxTransfer">The maximum you can transfer is {{ (balance | async) + 500 | currency: 'EUR' }}</small>
             </ng-container>
         </div>
         

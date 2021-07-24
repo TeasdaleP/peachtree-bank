@@ -8,9 +8,12 @@ $grey: #E9ECEF;
 $dark-grey: #D1D4D7;
 
 body {
-    font-family: 'Lexend', sans-serif;;
-    background-color: $grey;
     margin: 0;
+    font-family: 'Lexend', sans-serif;;
+    background-image: url(/assets/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 button {

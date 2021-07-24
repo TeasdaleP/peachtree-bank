@@ -12,9 +12,7 @@ import { TransactionEffects } from './ngrx/effects/transaction.effects';
 import { BbUIModule } from './components/bb-ui/bb-ui.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
