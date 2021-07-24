@@ -1,11 +1,28 @@
+@import '../../bb-ui/styles/main.scss';
+
 .home {
     &-header {
+       display: flex;
+       justify-content: space-between; 
        background-color: white;
        padding: 0.625em 0.625em 0.625em 0.625em; 
     }
 
+    &-heading {
+        color: $primary-blue;
+        font-size: 1em;
+        line-height: 2em;
+        font-weight: 300;
+    }
+
     &-body {
-       
+        display: flex;
+        justify-content: center;
+    }
+
+    &-transfer {
+        width: 40%;
+        margin: 2rem;
     }
 
     &-footer {

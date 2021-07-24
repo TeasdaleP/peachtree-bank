@@ -1,0 +1,87 @@
+@import '../../../../styles.scss';
+
+.transfer {
+    
+    &-form {
+        padding: 0.5em 0 0.5em 0;
+
+        &-label {
+            line-height: 2em;
+        }
+
+        &-prefix {
+            color: #808890;
+            font-weight: 300;
+            font-size: 0.875em;
+            padding-right: 0.75em;
+        }
+
+        &-group {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            background-color: $grey;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            border: 1px solid $dark-grey;
+            border-radius: 4px;
+            padding-left: 0.75em;
+            overflow: hidden;
+            font-family: sans-serif;
+
+            &--error {
+                border-color: $red;
+            }
+        }
+
+        &-amount {
+            flex-grow: 1;
+            font-size: 14px;
+            background: #fff;
+            border: none;
+            outline: none;
+            padding: 0.5rem;
+
+            &--error {
+                border-color: $red;
+            }
+        }
+
+        &-input {
+            width: 100%;
+            display: block;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            border-radius: 0.25em;
+            border: 1px solid $dark-grey;
+            font-size: 0.875em;
+            line-height: 1.25em;
+            padding: 0.5em 1em;
+
+            &:disabled {
+                background-color: $grey;
+            }
+
+            &--error {
+                border-color: $red;
+            }
+        }
+    }
+
+    &-error {
+        display: block;
+        color: $red;
+    }
+
+    &-button {
+        display: flex;
+        justify-content: flex-end;
+
+        &-disabled {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+    }
+}

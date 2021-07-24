@@ -1,9 +1,15 @@
 <div class="home">
     <div class="home-header">
         <app-logo></app-logo>
+        <span class="home-heading"> Frontend <strong>Technical Assigment</strong></span>
     </div>
     <div class="home-body">
-
+        <div class="home-transfer">
+            <app-transfer [balance]="balance$" (transferred)="handleTransfer($event)"></app-transfer>
+        </div>
+        <div class="home-transfer">
+            This is another component
+        </div>
     </div>
     <div class="home-footer">
         <app-footer></app-footer>

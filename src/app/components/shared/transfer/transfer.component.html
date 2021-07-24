@@ -1,0 +1,50 @@
+<app-panel [title]="title" [icon]="icon">
+    <form #transferForm="ngForm" (ngSubmit)="onSubmit(transferForm)">
+        
+        <div class="transfer-form">
+            <label class="transfer-form-label">From Account</label>
+            <input class="transfer-form-input" placeholder="My Personal Account: {{ balance | async | currency: 'EUR' }}" disabled>
+        </div>
+        
+        <div class="transfer-form">
+            <label class="transfer-form-label">To Account</label>
+            <input
+                type ="text"
+                name="transferAccount"
+                class="transfer-form-input" 
+                #transferAccount="ngModel"
+                placeholder="type an account name"
+                [(ngModel)]="transfer.account"
+                required
+                [class.transfer-form-input--error]="transferAccount.invalid && transferAccount.touched"
+            >
+            <small class="transfer-error" *ngIf="transferAccount.invalid && transferAccount.touched">The account is required</small>
+        </div>
+        
+        <div class="transfer-form">
+            <label class="transfer-form-label">Amount</label>
+            <div class="transfer-form-group" [class.transfer-form-group--error]="transferAmount.invalid && transferAmount.touched">
+                <span class="transfer-form-prefix"><i class="fas fa-euro-sign"></i></span>
+                <input 
+                    type="number"
+                    min="0"
+                    class="transfer-form-amount"
+                    name="transferAmount"
+                    #transferAmount="ngModel"
+                    placeholder="specify the amount"
+                    [appTransferValidation]
+                    [(ngModel)]="transfer.amount"
+                    required
+                >
+            </div>
+            <ng-container *ngIf="transferAmount.touched">
+                <small class="transfer-error" *ngIf="transferAmount.errors && transferAmount.errors.required">The amount is required</small>
+                <small class="transfer-error" *ngIf="transferAmount.errors && transferAmount.errors.maxTransfer">The maximum you can transfer is {{ (balance | async) + 500 | currency: 'EUR' }}</small>
+            </ng-container>
+        </div>
+        
+        <div class="transfer-button" [class.transfer-button-disabled]="!transferForm.valid">
+            <app-submit-button></app-submit-button>
+        </div>
+    </form>
+</app-panel>

@@ -5,8 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from "@angular/router";
 import { BbUIModule } from "../bb-ui/bb-ui.module";
 
+import { TransferComponent } from "./transfer/transfer.component";
+import { PanelComponent } from "./panel/panel.component";
+
+import { TransferValidationDirective } from "src/app/directives/transfer-validation.directive";
+
 const SHARED_COMPONENTS = [
-   
+    TransferValidationDirective,
+    TransferComponent,
+    PanelComponent
 ]
 
 @NgModule({
