@@ -24,9 +24,17 @@ export class TransferComponent implements OnInit {
   }
 
   public onSubmit(transferForm: NgForm) {
-    // need to handle the data and emit to parent component
-    console.log(this.transfer.account);
-    console.log(this.transfer.amount);
-    
+    if(transferForm.valid) {
+      this.transfer = {
+        account: transferForm.controls.transferAccount.value,
+        amount: transferForm.controls.transferAmount.value,
+      }
+    }
+  }
+
+  public handleConfirmation(event) {
+    if(event) {
+      this.transferred.emit(this.transfer);
+    }
   }
 }

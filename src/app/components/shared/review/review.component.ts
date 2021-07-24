@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit } from '@angular/core';
 import { Transfer } from 'src/app/helpers/transfer.interface';
 
 @Component({
@@ -8,18 +8,21 @@ import { Transfer } from 'src/app/helpers/transfer.interface';
 })
 export class ReviewComponent implements OnInit {
   @Input() public transfer: Transfer;
-  public open: boolean
+  @Input() public confirmed: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() public open: boolean;
 
-  constructor(private element: ElementRef) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.open = true;
+
   }
 
   public close(){
     this.open = !this.open;
-    // this.element.nativeElement.classList.remove('show')
-    // this.element.nativeElement.classList.add('hidden')
   }
 
+  public confirm() {
+    this.confirmed.emit(true);
+    this.open = !this.open;
+  }
 }
