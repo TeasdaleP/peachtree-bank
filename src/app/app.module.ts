@@ -10,6 +10,7 @@ import { reducers } from './ngrx';
 import { EffectsModule } from '@ngrx/effects';
 import { TransactionEffects } from './ngrx/effects/transaction.effects';
 import { BbUIModule } from './components/bb-ui/bb-ui.module';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +24,10 @@ import { BbUIModule } from './components/bb-ui/bb-ui.module';
     SharedModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    NgbActiveModal,
+    NgbModal,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,9 +15,7 @@ import * as fromStore from '../../../ngrx/selectors/transactions.selectors';
 export class HomeComponent implements OnInit {
   public balance$: Observable<number>;
   public transaction$: Observable<Transactions>;
-  public currentBalance: number = 987.65;
-
-
+  
   constructor(private store: Store<State>) {
     this.balance$ = this.store.select(fromStore.getBalance)
     this.transaction$ = this.store.select(fromStore.getTransactions)
@@ -27,7 +25,6 @@ export class HomeComponent implements OnInit {
   }
 
   public handleTransfer($event) {
-    console.log($event);
     this.store.dispatch(new AddTransaction($event));
   }
 

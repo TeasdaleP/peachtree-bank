@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { noop, Observable } from 'rxjs';
 import { Transfer } from 'src/app/helpers/transfer.interface';
+import { ReviewComponent } from '../review/review.component';
 
 @Component({
   selector: 'app-transfer',
@@ -12,11 +14,10 @@ export class TransferComponent implements OnInit {
   @Input() balance: Observable<number>;
   @Output() transferred: EventEmitter<Transfer> = new EventEmitter<Transfer>();
   public transfer: Transfer;
-  public submitted: boolean = false;
   public title: string;
   public icon: string;
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.transfer = { amount: undefined, account: undefined }
@@ -25,20 +26,16 @@ export class TransferComponent implements OnInit {
   }
 
   public onSubmit(transferForm: NgForm) {
-    if(!transferForm.errors && this.transfer) {
-      this.submitted = !this.submitted;
+    if (!transferForm.pristine && !transferForm.errors && this.transfer) {
+      const modal = this.modalService.open(ReviewComponent);
+      modal.componentInstance.transfer = this.transfer;
+      modal.result.then((submit) => {
+        if (submit === 'confirm') {
+          this.transferred.emit(this.transfer);
+          transferForm.reset();
+        }
+      })
     }
   }
 
-  public handleConfirmation(event) {
-    if(event) {
-      this.transferred.emit(this.transfer);
-      this.resetModel()
-    }
-  }
-
-  private resetModel() {
-    this.transfer = { amount: undefined, account: undefined }
-    this.ngOnInit()
-  }
 }

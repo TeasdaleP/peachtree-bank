@@ -1,40 +1,5 @@
 @import '../../../../styles.scss';
 
-.modal {
-    z-index: 1000;
-    position: fixed;
-    top: 15%;
-    bottom: 0;
-    left: 25%;
-    width: 45%;
-
-    &-body {
-        background: white;
-        border-radius: 1em;
-        margin: 40px;
-        padding: 20px;
-    }
-
-    &-background {
-        z-index: 900;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: black;
-        opacity: 0.75;
-    }
-}
-
-.show {
-    display: block;
-}
-
-.hidden {
-    display: none;
-}
-
 .review {
     display: flex;
 
@@ -65,12 +30,33 @@
         &-close {
             color: $darkest-grey;
             background-color: $grey;
+            border-radius: 0.25em;
+            border: 0.0625em solid $dark-grey;
+            font-size: 0.875em;
+            line-height: 1.25em;
+            padding: 0.5em 1em;
             margin: 0 0.5em 0 0.5em;
 
             &:hover {
                 color: $grey;
                 background-color: $darkest-grey;
                 border: none;
+            }
+        }
+
+        &-confirm {
+            color: white;
+            background-color: $orange;
+            border-radius: 0.25em;
+            border: 0.0625em solid $dark-grey;
+            font-size: 0.875em;
+            line-height: 1.25em;
+            padding: 0.5em 1em;
+
+            &:hover {
+                color: $orange;
+                background: white;
+                border: 0.0625em solid $orange;
             }
         }
     }

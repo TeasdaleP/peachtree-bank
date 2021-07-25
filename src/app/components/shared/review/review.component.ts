@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Transfer } from 'src/app/helpers/transfer.interface';
 
 @Component({
@@ -8,22 +9,13 @@ import { Transfer } from 'src/app/helpers/transfer.interface';
 })
 export class ReviewComponent implements OnInit {
   @Input() public transfer: Transfer;
-  @Input() public open: boolean;
 
-  @Output() public confirmed: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  constructor() {}
+  constructor(private activeModal: NgbActiveModal) {}
 
   ngOnInit(): void {
-    
   }
 
-  public close(){
-    this.open = !this.open;
-  }
-
-  public confirm() {
-    this.confirmed.emit(true);
-    this.open = !this.open;
+  public close(confirmation: string) {
+    this.activeModal.close(confirmation);
   }
 }
