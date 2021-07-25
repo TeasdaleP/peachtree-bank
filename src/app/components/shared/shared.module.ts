@@ -7,13 +7,16 @@ import { BbUIModule } from "../bb-ui/bb-ui.module";
 
 import { TransferComponent } from "./transfer/transfer.component";
 import { PanelComponent } from "./panel/panel.component";
-
 import { TransferValidationDirective } from "src/app/directives/transfer-validation.directive";
+import { ReviewComponent } from "./review/review.component";
+import { TransactionsComponent } from "./transactions/transactions.component";
 
 const SHARED_COMPONENTS = [
     TransferValidationDirective,
     TransferComponent,
-    PanelComponent
+    PanelComponent,
+    ReviewComponent,
+    TransactionsComponent
 ]
 
 @NgModule({

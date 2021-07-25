@@ -1,9 +1,16 @@
 import { Action } from "@ngrx/store";
-import { Transactions } from "../models/transactions.interface";
+import { Transfer } from "src/app/helpers/transfer.interface";
+import { Transaction, Transactions } from "../models/transactions.interface";
 
+export const ADD_TRANSACTION = '[TRANSACTION] Add';
 export const LOAD_TRANSACTION = '[TRANSACTION] Load';
 export const LOAD_TRANSACTION_SUCCESS = '[TRANSACTION] Loaded Successfully';
 export const TRANSACTION_FAILURE = '[TRANSACTION] Failure';
+
+export class AddTransaction implements Action {
+    readonly type = ADD_TRANSACTION;
+    constructor(public payload: Transfer) {}
+}
 
 export class LoadTransaction implements Action {
     readonly type = LOAD_TRANSACTION;
@@ -20,4 +27,4 @@ export class TransactionFailure implements Action {
     constructor(public payload: any) {}
 }
 
-export type TransactionType = LoadTransaction | LoadTransactionSuccess | TransactionFailure;
+export type TransactionType = AddTransaction |LoadTransaction | LoadTransactionSuccess | TransactionFailure;

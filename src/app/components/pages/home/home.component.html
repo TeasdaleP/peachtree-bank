@@ -7,8 +7,8 @@
         <div class="home-transfer">
             <app-transfer [balance]="balance$" (transferred)="handleTransfer($event)"></app-transfer>
         </div>
-        <div class="home-transfer">
-            This is another component
+        <div class="home-transactions">
+            <app-transactions [transactions]="transaction$"></app-transactions>
         </div>
     </div>
     <div class="home-footer">

@@ -1,11 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import "~bootstrap/scss/bootstrap";
 @import './app/components/bb-ui/styles/main.scss';
 
 $red: #DC143C;
 $orange: #F9842C;
+$green: #228B22;
 $grey: #E9ECEF;
 $dark-grey: #D1D4D7;
+$darkest-grey: #808890;
 
 body {
     margin: 0;
@@ -17,17 +19,13 @@ body {
 }
 
 button {
-    color: white;
-    background-color: $orange;
-    border-radius: 0.25em;
-    border: 0.0625em solid $dark-grey;
-    font-size: 0.875em;
-    line-height: 1.25em;
-    padding: 0.5em 1em;
+    color: white !important;
+    background-color: $orange !important;
+    border: 0.0625em solid $dark-grey !important;
 
     &:hover {
-        color: $orange;
-        background: white;
-        border: 0.0625em solid $orange;
+        color: $orange !important;
+        background: white !important;
+        border: 0.0625em solid $orange !important;
     }
 }

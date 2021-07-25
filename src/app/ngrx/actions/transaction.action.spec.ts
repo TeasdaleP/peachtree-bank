@@ -1,6 +1,7 @@
 import { mockTransactions } from "src/app/helpers/mock.data";
-import { Transactions } from "../models/transactions.interface";
-import { LoadTransaction, LoadTransactionSuccess, LOAD_TRANSACTION, LOAD_TRANSACTION_SUCCESS, TransactionFailure, TRANSACTION_FAILURE } from "./transaction.action";
+import { Transfer } from "src/app/helpers/transfer.interface";
+import { Transaction, Transactions } from "../models/transactions.interface";
+import { AddTransaction, ADD_TRANSACTION, LoadTransaction, LoadTransactionSuccess, LOAD_TRANSACTION, LOAD_TRANSACTION_SUCCESS, TransactionFailure, TRANSACTION_FAILURE } from "./transaction.action";
 
 describe('Transaction Actions', () => {
 
@@ -8,6 +9,13 @@ describe('Transaction Actions', () => {
         const action = new LoadTransaction();
         expect(action.type).toEqual(LOAD_TRANSACTION);
     });
+
+    it('Should call Add Transaction action', () => {
+        const add: Transfer =  { account: 'Account', amount: 12.34 }
+        const action = new AddTransaction(add);
+        expect(action.type).toEqual(ADD_TRANSACTION);
+        expect(action.payload).toEqual(add); 
+    })
 
     it('Should call Load Transaction Success action', () => {
         const success: Transactions = mockTransactions;

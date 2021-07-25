@@ -1,0 +1,63 @@
+@import '../../../../styles.scss';
+
+.review {
+    display: flex;
+
+    &-group {
+        padding: 1em 0 1em 0;
+    }
+
+    &-emphasis {
+        font-weight: 500;
+    }
+
+    &-header {
+        font-size: 1.5em;
+        line-height: 2em;
+        font-weight: 300;
+    }
+
+    &-subheader {
+        font-style: italic;
+        padding: 1.5em 0 1.5em 0;
+    }
+
+    &-button {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+
+        &-close {
+            color: $darkest-grey;
+            background-color: $grey;
+            border-radius: 0.25em;
+            border: 0.0625em solid $dark-grey;
+            font-size: 0.875em;
+            line-height: 1.25em;
+            padding: 0.5em 1em;
+            margin: 0 0.5em 0 0.5em;
+
+            &:hover {
+                color: $grey;
+                background-color: $darkest-grey;
+                border: none;
+            }
+        }
+
+        &-confirm {
+            color: white;
+            background-color: $orange;
+            border-radius: 0.25em;
+            border: 0.0625em solid $dark-grey;
+            font-size: 0.875em;
+            line-height: 1.25em;
+            padding: 0.5em 1em;
+
+            &:hover {
+                color: $orange;
+                background: white;
+                border: 0.0625em solid $orange;
+            }
+        }
+    }
+}

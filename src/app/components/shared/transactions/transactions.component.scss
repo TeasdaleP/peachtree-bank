@@ -1,0 +1,19 @@
+@import '../../../../styles.scss';
+
+.transaction {
+    display: flex;
+    width: 100%;
+    padding: 0.5em 0 0.5em 0;
+
+    &-inner {
+        padding: 0.75em 0.75em 0.75em 0.75em;
+    }
+
+    &-credit {
+        border-left: 6px solid $green;
+    }
+
+    &-debit {
+        border-left: 6px solid $red;
+    }
+}

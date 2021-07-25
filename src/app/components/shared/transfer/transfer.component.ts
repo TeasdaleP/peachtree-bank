@@ -1,11 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
-
-export interface Transfer {
-  account: string;
-  amount: number;
-}
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { noop, Observable } from 'rxjs';
+import { Transfer } from 'src/app/helpers/transfer.interface';
+import { ReviewComponent } from '../review/review.component';
 
 @Component({
   selector: 'app-transfer',
@@ -19,18 +17,25 @@ export class TransferComponent implements OnInit {
   public title: string;
   public icon: string;
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.transfer = { amount: undefined, account: undefined };
+    this.transfer = { amount: undefined, account: undefined }
     this.title = 'make transfer';
     this.icon = 'fas fa-credit-card';
   }
 
   public onSubmit(transferForm: NgForm) {
-    // need to handle the data and emit to parent component
-    console.log(this.transfer.account);
-    console.log(this.transfer.amount);
-    
+    if (!transferForm.pristine && !transferForm.errors && this.transfer) {
+      const modal = this.modalService.open(ReviewComponent);
+      modal.componentInstance.transfer = this.transfer;
+      modal.result.then((submit) => {
+        if (submit === 'confirm') {
+          this.transferred.emit(this.transfer);
+          transferForm.reset();
+        }
+      })
+    }
   }
+
 }
