@@ -1,4 +1,5 @@
 import { Action } from "@ngrx/store";
+import { Transfer } from "src/app/helpers/transfer.interface";
 import { Transaction, Transactions } from "../models/transactions.interface";
 
 export const ADD_TRANSACTION = '[TRANSACTION] Add';
@@ -8,7 +9,7 @@ export const TRANSACTION_FAILURE = '[TRANSACTION] Failure';
 
 export class AddTransaction implements Action {
     readonly type = ADD_TRANSACTION;
-    constructor(public payload: Transaction) {}
+    constructor(public payload: Transfer) {}
 }
 
 export class LoadTransaction implements Action {

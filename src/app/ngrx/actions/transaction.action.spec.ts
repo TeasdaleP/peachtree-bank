@@ -1,4 +1,5 @@
 import { mockTransactions } from "src/app/helpers/mock.data";
+import { Transfer } from "src/app/helpers/transfer.interface";
 import { Transaction, Transactions } from "../models/transactions.interface";
 import { AddTransaction, ADD_TRANSACTION, LoadTransaction, LoadTransactionSuccess, LOAD_TRANSACTION, LOAD_TRANSACTION_SUCCESS, TransactionFailure, TRANSACTION_FAILURE } from "./transaction.action";
 
@@ -10,7 +11,7 @@ describe('Transaction Actions', () => {
     });
 
     it('Should call Add Transaction action', () => {
-        const add: Transaction = mockTransactions[0];
+        const add: Transfer =  { account: 'Account', amount: 12.34 }
         const action = new AddTransaction(add);
         expect(action.type).toEqual(ADD_TRANSACTION);
         expect(action.payload).toEqual(add); 

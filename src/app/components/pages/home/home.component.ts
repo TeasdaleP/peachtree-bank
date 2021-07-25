@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   }
 
   public handleTransfer($event) {
+    console.log($event);
     this.store.dispatch(new AddTransaction($event));
   }
 
