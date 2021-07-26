@@ -14,10 +14,10 @@ describe('Home Component', () => {
       providers: [
         provideMockStore({})
       ]
-    }).compileComponents()
-  
+    }).compileComponents();
+
   }));
-   
+
   beforeEach(() => {
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
@@ -31,10 +31,10 @@ describe('Home Component', () => {
   });
 
   it('Should be able to handle a transfer from child component', () => {
-    let transfer: Transfer = { amount: 123.45, account: 'account' }
+    const transfer: Transfer = { amount: 123.45, account: 'account' };
     spyOn(store, 'dispatch').and.callThrough();
     component.handleTransfer(transfer);
     fixture.detectChanges();
     expect(store.dispatch).toHaveBeenCalled();
-  })
+  });
 });

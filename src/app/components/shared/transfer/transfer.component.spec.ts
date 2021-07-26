@@ -11,10 +11,10 @@ describe('Transfer Component', () => {
 
   const mockModal = () => ({
     open: () => ({
-      componentInstance: { 
-        data: {} 
+      componentInstance: {
+        data: {}
       },
-      result: { 
+      result: {
         then: () => of('confirm')
       },
     }),

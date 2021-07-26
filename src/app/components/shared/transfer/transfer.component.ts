@@ -20,7 +20,7 @@ export class TransferComponent implements OnInit {
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.transfer = { amount: undefined, account: undefined }
+    this.transfer = { amount: undefined, account: undefined };
     this.title = 'make transfer';
     this.icon = 'fas fa-credit-card';
   }
@@ -34,7 +34,7 @@ export class TransferComponent implements OnInit {
           this.transferred.emit(this.transfer);
           transferForm.reset();
         }
-      })
+      });
     }
   }
 

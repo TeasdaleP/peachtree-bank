@@ -24,11 +24,11 @@ export class TransferValidationDirective {
   }
 
   validate(control: FormControl): Validations {
-    let errors: Validations = { maxTransfer: false, invalidType: false }
+    const errors: Validations = { maxTransfer: false, invalidType: false };
     this.balance$.subscribe((balance) => {
-      let maxTransfer = balance + 500;
+      const maxTransfer = balance + 500;
 
-      if(control && control.value > maxTransfer) {
+      if (control && control.value > maxTransfer) {
         return errors.maxTransfer = !errors.maxTransfer;
       } else if (control && control.value && typeof control.value !== 'number') {
         return errors.invalidType = !errors.invalidType;

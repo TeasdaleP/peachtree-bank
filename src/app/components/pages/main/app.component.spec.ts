@@ -13,7 +13,7 @@ describe('App Component', () => {
     return TestBed.configureTestingModule({
       declarations: [AppComponent],
       providers: [
-        provideMockStore({ 
+        provideMockStore({
           initialState: { transactions: mockTransactions }
         })
       ],

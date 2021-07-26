@@ -3,9 +3,9 @@ import { Transaction } from '../models/transactions.interface';
 import { v4 as uuidv4 } from 'uuid';
 
 export function transactionReducer(state = [], action: actions.TransactionType) {
-    switch(action.type) {
+    switch (action.type) {
         case actions.ADD_TRANSACTION: {
-            let transaction: Transaction = {
+            const transaction: Transaction = {
                 categoryCode: uuidv4(),
                 dates: {
                     valueDate: Date.now()
@@ -22,14 +22,14 @@ export function transactionReducer(state = [], action: actions.TransactionType) 
                     name: action.payload.account,
                     accountNumber: uuidv4()
                 }
-            }
+            };
             return [
                 ...state,
                 transaction
-            ]
+            ];
         }
         case actions.LOAD_TRANSACTION_SUCCESS: {
-            return action.payload
+            return action.payload;
         }
         default: {
             return state;

@@ -9,14 +9,14 @@ describe('Review Component', () => {
   let component: ReviewComponent;
   let fixture: ComponentFixture<ReviewComponent>;
 
-  let transfer: Transfer = {
+  const transfer: Transfer = {
     account: 'Account',
     amount: 99.99
-  }
+  };
 
-  let mockActiveModal = {
+  const mockActiveModal = {
     close: () => ({})
-  }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -41,7 +41,7 @@ describe('Review Component', () => {
 
   it('Should be able to click close within the modal', () => {
     spyOn(component, 'close');
-    let button = fixture.debugElement.query(By.css('.review-button-close')).nativeElement;
+    const button = fixture.debugElement.query(By.css('.review-button-close')).nativeElement;
     button.click();
     fixture.detectChanges();
     expect(component.close).toHaveBeenCalled();
@@ -50,7 +50,7 @@ describe('Review Component', () => {
 
   it('Should be able to click confirm within the modal', () => {
     spyOn(component, 'close');
-    let button = fixture.debugElement.query(By.css('.review-button-confirm')).nativeElement;
+    const button = fixture.debugElement.query(By.css('.review-button-confirm')).nativeElement;
     button.click();
     fixture.detectChanges();
     expect(component.close).toHaveBeenCalled();
@@ -58,21 +58,21 @@ describe('Review Component', () => {
   });
 
   it('Should be able to see the account and amount before confirming', () => {
-    let review = fixture.debugElement.queryAll(By.css('.review-item'));
-    let account = review[0].nativeElement;
-    let amount = review[1].nativeElement;
+    const review = fixture.debugElement.queryAll(By.css('.review-item'));
+    const account = review[0].nativeElement;
+    const amount = review[1].nativeElement;
 
     expect(amount.textContent.trim()).not.toEqual(transfer.account);
 
-    let amountWithoutCurrencyPipe = amount.textContent.trim().substring(1);
+    const amountWithoutCurrencyPipe = amount.textContent.trim().substring(1);
 
     expect(amountWithoutCurrencyPipe).toEqual(transfer.amount.toString());
     expect(account.textContent.trim()).toEqual(transfer.account);
   });
 
   it('Should confirm close or confirm to the active modal service', () => {
-    let spy = spyOn(mockActiveModal, 'close');
+    const spy = spyOn(mockActiveModal, 'close');
     component.close('close');
     expect(spy).toHaveBeenCalled();
-  })
+  });
 });

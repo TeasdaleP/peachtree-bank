@@ -15,10 +15,10 @@ import * as fromStore from '../../../ngrx/selectors/transactions.selectors';
 export class HomeComponent implements OnInit {
   public balance$: Observable<number>;
   public transaction$: Observable<Transactions>;
-  
+
   constructor(private store: Store<State>) {
-    this.balance$ = this.store.select(fromStore.getBalance)
-    this.transaction$ = this.store.select(fromStore.getTransactions)
+    this.balance$ = this.store.select(fromStore.getBalance);
+    this.transaction$ = this.store.select(fromStore.getTransactions);
   }
 
   ngOnInit(): void {

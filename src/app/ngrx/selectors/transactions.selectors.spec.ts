@@ -1,17 +1,17 @@
-import { TestBed } from "@angular/core/testing";
-import { MockStore, provideMockStore } from "@ngrx/store/testing";
-import { mockTransactions } from "src/app/helpers/mock.data";
-import { State } from "..";
+import { TestBed } from '@angular/core/testing';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { mockTransactions } from 'src/app/helpers/mock.data';
+import { State } from '..';
 
 import { getBalance } from './transactions.selectors';
 
 describe('Transaction Selectors', () => {
     let store: MockStore<State>;
-    
+
     const initialState: State = {
         transactions: mockTransactions
     };
-    
+
     it('Should get a total of transactions when calling getBalance', () => {
         const result = getBalance.projector(
             initialState.transactions
@@ -21,7 +21,7 @@ describe('Transaction Selectors', () => {
     });
 
     it('Should see strings and numbers converted into getBalance total', () => {
-        let mockState : State = {
+        const mockState: State = {
             transactions: [
                 {
                     categoryCode: 'CODE-12345',
@@ -60,11 +60,11 @@ describe('Transaction Selectors', () => {
                     }
                 }
             ]
-        }   
-        
+        };
+
         const result = getBalance.projector(
             mockState.transactions
-        )
+        );
 
         expect(result).toEqual(200);
     });
