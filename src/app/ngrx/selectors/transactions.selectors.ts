@@ -15,8 +15,6 @@ export const getBalance = createSelector(
                 let parse = parseInt(amount);
                 if(typeof parse == 'number') {
                     balance += parse;
-                } else {
-                    console.error('Error! NaN', parse)
                 }
             }
         });
