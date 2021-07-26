@@ -67,4 +67,54 @@ describe('Transaction Selectors', () => {
 
         expect(result).toEqual(200);
     });
+
+    it('Should see DBIT transaction type reduce from balance', () => {
+        let mockState : State = {
+            transactions: [
+                {
+                    categoryCode: 'CODE-12345',
+                    dates: {
+                        valueDate: 123456789890
+                    },
+                    transaction: {
+                        amountCurrency: {
+                            amount: 1000,
+                            currencyCode: 'EUR'
+                        },
+                        type: 'Salary',
+                        creditDebitIndicator: 'CRDT'
+                    },
+                    merchant: {
+                        name: 'Peachtree Bank',
+                        accountNumber: '12345678'
+                    }
+                },
+                {
+                    categoryCode: 'CODE-12345',
+                    dates: {
+                        valueDate: 123456789890
+                    },
+                    transaction: {
+                        amountCurrency: {
+                            amount: '500',
+                            currencyCode: 'EUR'
+                        },
+                        type: 'Salary',
+                        creditDebitIndicator: 'DBIT'
+                    },
+                    merchant: {
+                        name: 'Peachtree Bank',
+                        accountNumber: '12345678'
+                    }
+                }
+            ]
+        }   
+        
+        const result = getBalance.projector(
+            mockState.transactions
+        )
+
+        console.log(result)
+        expect(result).toBe(500);
+    })
 });
