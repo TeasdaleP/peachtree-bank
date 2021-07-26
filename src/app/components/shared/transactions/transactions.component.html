@@ -1,13 +1,27 @@
 <app-panel [title]="title" [icon]="icon">
-    <ng-container *ngFor="let transaction of transactions | async">
+    <!-- FILTER WILL GO HERE -->
+
+    <div class="transaction">
+        <div class="transaction-inner">
+            <div class="transaction-item" *ngFor="let transaction of transactions | async">
+
+                <div class="transaction-border" [ngClass]="transaction.transaction.creditDebitIndicator === 'CRDT' ? 'transaction-credit-border' : 'transaction-debit-border' ">
+                    <app-transaction-item>
+                    
+                        <div data-test-hook="transactionDate" class="transaction-date">{{ transaction.dates.valueDate | date: "MMM dd" }}</div>
             
-        <div class="transaction">
-            <div class="transaction-inner" [ngClass]="transaction.transaction.creditDebitIndicator === 'CRDT' ? 'transaction-credit' : 'transaction-debit' ">
-                <small>
-                    {{ transaction | json }}
-                </small>
+                        <div data-test-hook='transactionMerchantName' class="transaction-merchant">
+                            <strong>{{ transaction.merchant.name}}</strong>
+                        </div>
+                        <small data-test-hook='transactionType'>{{ transaction.transaction.type}}</small>
+            
+                        <div data-test-hook='transactionAmount' class="transaction-amount" [ngClass]="transaction.transaction.creditDebitIndicator === 'CRDT' ? 'transaction-credit' : 'transaction-debit' ">
+                            {{ transaction.transaction.amountCurrency.amount | currency : 'EUR' }}
+                        </div>
+                    </app-transaction-item>
+                </div>
+
             </div>
         </div>
-        
-    </ng-container>
+    </div>
 </app-panel>

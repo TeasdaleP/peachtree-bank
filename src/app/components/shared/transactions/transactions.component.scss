@@ -1,19 +1,63 @@
 @import '../../../../styles.scss';
 
+.merchant-details{
+    width: 30% !important;
+}
+
 .transaction {
     display: flex;
-    width: 100%;
-    padding: 0.5em 0 0.5em 0;
+    max-height: 30em;
+    overflow: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     &-inner {
-        padding: 0.75em 0.75em 0.75em 0.75em;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    &-item {
+        padding: 1em 0 1em 0;
+    }
+
+    &-date {
+        flex-grow: 1;
+        text-align: center;
+        width: 20%;
+    }
+
+    &-merchant {
+        flex-grow: 1;
+        // text-align: center;
+        width: 200%;
+    }
+
+    &-amount {
+        flex-grow: 1;
+        text-align: right;
+        width: 30%;
+    }
+
+    &-merchant {
+        font-size: 0.875em;
     }
 
     &-credit {
-        border-left: 6px solid $green;
+        color: $green;
+
+        &-border {
+            border-left: 6px solid $green;
+        }
     }
 
     &-debit {
-        border-left: 6px solid $red;
+        color: $red;
+
+        &-border {
+            border-left: 6px solid $red;
+        }
     }
 }

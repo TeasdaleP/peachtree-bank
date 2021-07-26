@@ -29,3 +29,8 @@ button {
         border: 0.0625em solid $orange !important;
     }
 }
+
+app-transaction-item {
+    display: flex;
+    align-items: center;
+}
