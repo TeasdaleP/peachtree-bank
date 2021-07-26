@@ -9,14 +9,28 @@ import { Transactions } from 'src/app/ngrx/models/transactions.interface';
 })
 export class TransactionsComponent implements OnInit {
   @Input() public transactions: Observable<Transactions>;
+  public sortedTransactions: Transactions;
+  public search: string = '';
   public title: string;
   public icon: string;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.title = 'transactions list';
     this.icon = 'fas fa-list';
+    this.transactions.subscribe((transactions) => {
+      this.sortedTransactions = this.sortedData(transactions); 
+    });
   }
 
+  public filterBy(event): void {
+    this.search = event;
+  }
+
+  private sortedData(unSortedData: Transactions): Transactions {
+    return unSortedData.slice().sort((a, b) => {
+      return <any>new Date(b.dates.valueDate) - <any>new Date(a.dates.valueDate);
+    })
+  }
 }
