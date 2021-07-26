@@ -1,5 +1,4 @@
-import { TestBed } from "@angular/core/testing";
-import { MockStore, provideMockStore } from "@ngrx/store/testing";
+import { MockStore } from "@ngrx/store/testing";
 import { mockTransactions } from "src/app/helpers/mock.data";
 import { State } from "..";
 
