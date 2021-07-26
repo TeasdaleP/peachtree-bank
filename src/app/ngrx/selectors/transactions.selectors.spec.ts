@@ -113,8 +113,7 @@ describe('Transaction Selectors', () => {
         const result = getBalance.projector(
             mockState.transactions
         )
-
-        console.log(result)
+        
         expect(result).toBe(500);
     })
 });

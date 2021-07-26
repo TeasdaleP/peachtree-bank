@@ -3,7 +3,7 @@
 
     <div class="transaction">
         <div class="transaction-inner">
-            <div class="transaction-item" *ngFor="let transaction of transactions | async | filter:search">
+            <div class="transaction-item" *ngFor="let transaction of sortedTransactions | filter:search">
 
                 <div class="transaction-border" [ngClass]="transaction.transaction.creditDebitIndicator === 'CRDT' ? 'transaction-credit-border' : 'transaction-debit-border' ">
                     <app-transaction-item>
