@@ -8,11 +8,11 @@ export const getBalance = createSelector(
     transactions => {
         let balance = 0;
         transactions.forEach((entity) => {
-            let amount = entity.transaction;
+            const amount = entity.transaction;
             let typeSafeAmount;
             typeSafeAmount = typeof amount.amountCurrency.amount !== 'number' ? parseInt(amount.amountCurrency.amount) : amount.amountCurrency.amount;
 
-            if(amount.creditDebitIndicator === 'CRDT') {
+            if (amount.creditDebitIndicator === 'CRDT') {
                 balance += typeSafeAmount;
             } else if (amount.creditDebitIndicator === 'DBIT') {
                 balance -= typeSafeAmount;

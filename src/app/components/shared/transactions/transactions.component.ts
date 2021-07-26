@@ -10,17 +10,17 @@ import { Transactions } from 'src/app/ngrx/models/transactions.interface';
 export class TransactionsComponent implements OnInit {
   @Input() public transactions: Observable<Transactions>;
   public sortedTransactions: Transactions;
-  public search: string = '';
+  public search = '';
   public title: string;
   public icon: string;
 
   constructor() { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.title = 'transactions list';
     this.icon = 'fas fa-list';
     this.transactions.subscribe((transactions) => {
-      this.sortedTransactions = this.sortedData(transactions); 
+      this.sortedTransactions = this.sortedData(transactions);
     });
   }
 
@@ -30,7 +30,7 @@ export class TransactionsComponent implements OnInit {
 
   private sortedData(unSortedData: Transactions): Transactions {
     return unSortedData.slice().sort((a, b) => {
-      return <any>new Date(b.dates.valueDate) - <any>new Date(a.dates.valueDate);
-    })
+      return (new Date(b.dates.valueDate) as any) - (new Date(a.dates.valueDate) as any);
+    });
   }
 }

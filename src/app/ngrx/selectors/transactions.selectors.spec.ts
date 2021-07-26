@@ -1,11 +1,9 @@
-import { MockStore } from "@ngrx/store/testing";
-import { mockTransactions } from "src/app/helpers/mock.data";
-import { State } from "..";
+import { mockTransactions } from 'src/app/helpers/mock.data';
+import { State } from '..';
 
 import { getBalance } from './transactions.selectors';
 
 describe('Transaction Selectors', () => {
-    let store: MockStore<State>;
 
     const initialState: State = {
         transactions: mockTransactions
@@ -69,7 +67,7 @@ describe('Transaction Selectors', () => {
     });
 
     it('Should see DBIT transaction type reduce from balance', () => {
-        let mockState : State = {
+        const mockState: State = {
             transactions: [
                 {
                     categoryCode: 'CODE-12345',
@@ -108,12 +106,12 @@ describe('Transaction Selectors', () => {
                     }
                 }
             ]
-        }   
-        
+        };
+
         const result = getBalance.projector(
             mockState.transactions
-        )
-        
+        );
+
         expect(result).toBe(500);
-    })
+    });
 });

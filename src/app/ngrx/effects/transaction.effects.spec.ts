@@ -2,13 +2,13 @@ import { fakeAsync, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of, throwError } from 'rxjs';
-import { DataResponse, TransactionService } from 'src/app/services/transaction.service';
+import { TransactionService } from 'src/app/services/transaction.service';
 import { State } from '..';
 import { TransactionEffects } from './transaction.effects';
 import { mockTransactions } from 'src/app/helpers/mock.data';
 import * as actions from '../actions/transaction.action';
 
-class mockTransactionService {
+class MockTransactionService {
     getTransactions$() {
         return of(mockTransactions);
     }
@@ -30,7 +30,7 @@ describe('Transaction Effects', () => {
                 TransactionEffects,
                 provideMockStore({ initialState }),
                 provideMockActions( () => actions$),
-                { provide: TransactionService, useClass: mockTransactionService }
+                { provide: TransactionService, useClass: MockTransactionService }
             ]
         });
 

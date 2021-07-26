@@ -57,6 +57,6 @@ describe('Transfer Component', () => {
   });
 
   it('Should be able to submit the transfer form', fakeAsync(() => {
-    
+
   }));
 });
