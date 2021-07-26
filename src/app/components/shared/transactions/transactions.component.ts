@@ -9,6 +9,7 @@ import { Transactions } from 'src/app/ngrx/models/transactions.interface';
 })
 export class TransactionsComponent implements OnInit {
   @Input() public transactions: Observable<Transactions>;
+  public search: string = '';
   public title: string;
   public icon: string;
 
@@ -17,6 +18,10 @@ export class TransactionsComponent implements OnInit {
   ngOnInit(): void {
     this.title = 'transactions list';
     this.icon = 'fas fa-list';
+  }
+
+  public filterBy(event): void {
+    this.search = event;
   }
 
 }
