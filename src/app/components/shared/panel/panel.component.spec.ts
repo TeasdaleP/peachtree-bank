@@ -29,8 +29,8 @@ describe('PanelComponent', () => {
     component.ngOnInit();
     fixture.detectChanges();
 
-    let title = fixture.debugElement.query(By.css('.panel-heading'));
-    expect(title.nativeElement.textContent.trim()).toEqual('Title')
+    const title = fixture.debugElement.query(By.css('.panel-heading'));
+    expect(title.nativeElement.textContent.trim()).toEqual('Title');
   });
 
   it('Should display an icon when its inputted', () => {
@@ -38,7 +38,7 @@ describe('PanelComponent', () => {
     component.ngOnInit();
     fixture.detectChanges();
 
-    let icon = fixture.debugElement.query(By.css('i'));
+    const icon = fixture.debugElement.query(By.css('i'));
     expect(icon.nativeElement).toBeDefined();
   });
 });

@@ -1,11 +1,11 @@
-import { Component } from "@angular/core";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { By } from "@angular/platform-browser";
-import { MockStore, provideMockStore } from "@ngrx/store/testing";
-import { mockTransactions } from "../helpers/mock.data";
-import { State } from "../ngrx";
+import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { mockTransactions } from '../helpers/mock.data';
+import { State } from '../ngrx';
 
-import { TransferValidationDirective } from "./transfer-validation.directive";
+import { TransferValidationDirective } from './transfer-validation.directive';
 
 @Component({
   template: `
@@ -37,7 +37,7 @@ describe('Transfer Validation Directive', () => {
   });
 
   it('Should be created', () => {
-    let element = fixture.debugElement.queryAll(By.directive(TransferValidationDirective));
+    const element = fixture.debugElement.queryAll(By.directive(TransferValidationDirective));
     expect(element).toBeDefined();
   });
 
@@ -48,4 +48,4 @@ describe('Transfer Validation Directive', () => {
   it('Should tirgger if inputted amount is not of type number', () => {
 
   });
-})
+});

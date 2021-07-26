@@ -1,4 +1,4 @@
-import { Transactions } from "../ngrx/models/transactions.interface";
+import { Transactions } from '../ngrx/models/transactions.interface';
 
 export const mockTransactions: Transactions = [
     {
@@ -19,5 +19,5 @@ export const mockTransactions: Transactions = [
             accountNumber: '12345678'
         }
     }
-]
+];
 

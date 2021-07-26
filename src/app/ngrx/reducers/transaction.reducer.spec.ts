@@ -13,7 +13,7 @@ describe('Transactions Reducer', () => {
     });
 
     it('Should return and empty array for inital state for error failure', () => {
-        const error = [{ status: 404, message: "Something went wrong!" }]
+        const error = [{ status: 404, message: 'Something went wrong!' }];
         const action = { type: TRANSACTION_FAILURE, payload: error } as any;
         const result = reducer.transactionReducer(undefined, action);
         expect(result).toBeDefined();
@@ -34,9 +34,9 @@ describe('Transactions Reducer', () => {
         };
         const action = { type: ADD_TRANSACTION, payload: add } as any;
         const result = reducer.transactionReducer(undefined, action);
-        
+
         expect(result[0].transaction.amountCurrency.amount).toBe(add.amount);
         expect(result[0].merchant.name).toBe(add.account);
-     })
-    
-})
+     });
+
+});

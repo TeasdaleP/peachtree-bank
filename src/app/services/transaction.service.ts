@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Transaction, Transactions } from '../ngrx/models/transactions.interface';
 
 export interface DataResponse {
-  data: Array<Transaction>
+  data: Array<Transaction>;
 }
 
 @Injectable({

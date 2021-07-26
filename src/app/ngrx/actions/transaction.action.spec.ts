@@ -1,7 +1,16 @@
-import { mockTransactions } from "src/app/helpers/mock.data";
-import { Transfer } from "src/app/helpers/transfer.interface";
-import { Transaction, Transactions } from "../models/transactions.interface";
-import { AddTransaction, ADD_TRANSACTION, LoadTransaction, LoadTransactionSuccess, LOAD_TRANSACTION, LOAD_TRANSACTION_SUCCESS, TransactionFailure, TRANSACTION_FAILURE } from "./transaction.action";
+import { mockTransactions } from 'src/app/helpers/mock.data';
+import { Transfer } from 'src/app/helpers/transfer.interface';
+import { Transactions } from '../models/transactions.interface';
+import {
+    AddTransaction,
+    ADD_TRANSACTION,
+    LoadTransaction,
+    LoadTransactionSuccess,
+    LOAD_TRANSACTION,
+    LOAD_TRANSACTION_SUCCESS,
+    TransactionFailure,
+    TRANSACTION_FAILURE
+} from './transaction.action';
 
 describe('Transaction Actions', () => {
 
@@ -11,25 +20,25 @@ describe('Transaction Actions', () => {
     });
 
     it('Should call Add Transaction action', () => {
-        const add: Transfer =  { account: 'Account', amount: 12.34 }
+        const add: Transfer =  { account: 'Account', amount: 12.34 };
         const action = new AddTransaction(add);
         expect(action.type).toEqual(ADD_TRANSACTION);
-        expect(action.payload).toEqual(add); 
-    })
+        expect(action.payload).toEqual(add);
+    });
 
     it('Should call Load Transaction Success action', () => {
         const success: Transactions = mockTransactions;
         const action = new LoadTransactionSuccess(success);
         expect(action.type).toEqual(LOAD_TRANSACTION_SUCCESS);
         expect(action.payload.length).toBe(1);
-        expect(action.payload).toEqual(success)
+        expect(action.payload).toEqual(success);
     });
 
     it('Should call Transaction Failure action', () => {
-        const error = { status: 404, message: "Something went wrong!" };
+        const error = { status: 404, message: 'Something went wrong!' };
         const action = new TransactionFailure(error);
         expect(action.type).toEqual(TRANSACTION_FAILURE);
         expect(action.payload.status).toBe(404);
         expect(action.payload).toEqual(error);
-    })
-})
+    });
+});

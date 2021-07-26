@@ -9,9 +9,9 @@ import { Transactions } from 'src/app/ngrx/models/transactions.interface';
 describe('Transactions Component', () => {
   let component: TransactionsComponent;
 
-  let mockSearchPipe = {
+  const mockSearchPipe = {
     filter: () => ({})
-  }
+  };
 
   beforeEach(async(() => {
     component = new TransactionsComponent();
@@ -46,7 +46,7 @@ describe('Transactions Component', () => {
   });
 
   it('Should get a sorted list of transactions', () => {
-    let unSortedTransactions: Transactions = [
+    const unSortedTransactions: Transactions = [
       {
         categoryCode: 'CODE-12345',
         dates: {
@@ -83,19 +83,21 @@ describe('Transactions Component', () => {
           accountNumber: '12345678'
         }
       }
-    ]
+    ];
 
     component.transactions = of(unSortedTransactions);
     expect(component.sortedTransactions).toBeUndefined();
 
     component.ngOnInit();
     component.transactions.subscribe(() => {
-      expect(component.sortedTransactions[0].transaction.creditDebitIndicator).toBe(unSortedTransactions[0].transaction.creditDebitIndicator)
-    })
-  })
+      const expectation = component.sortedTransactions[0].transaction.creditDebitIndicator;
+      const result = unSortedTransactions[0].transaction.creditDebitIndicator;
+      expect(expectation).toBe(result);
+    });
+  });
 
   it('Should be able to set search parameters in function', () => {
-    let search = 'search for transaction'
+    const search = 'search for transaction';
 
     expect(component.search).toEqual('');
     component.filterBy(search);

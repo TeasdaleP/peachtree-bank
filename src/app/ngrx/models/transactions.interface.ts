@@ -23,7 +23,7 @@ export interface Transaction {
     categoryCode: string;
     dates: Dates;
     transaction: TransactionDetails;
-    merchant: Merchant
+    merchant: Merchant;
 }
 
 export type Transactions = Array<Transaction>;

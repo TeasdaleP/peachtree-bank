@@ -1,6 +1,6 @@
-import { Action } from "@ngrx/store";
-import { Transfer } from "src/app/helpers/transfer.interface";
-import { Transaction, Transactions } from "../models/transactions.interface";
+import { Action } from '@ngrx/store';
+import { Transfer } from 'src/app/helpers/transfer.interface';
+import { Transaction, Transactions } from '../models/transactions.interface';
 
 export const ADD_TRANSACTION = '[TRANSACTION] Add';
 export const LOAD_TRANSACTION = '[TRANSACTION] Load';

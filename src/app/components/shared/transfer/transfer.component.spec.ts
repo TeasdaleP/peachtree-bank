@@ -11,10 +11,10 @@ describe('Transfer Component', () => {
 
   const mockModal = () => ({
     open: () => ({
-      componentInstance: { 
-        data: {} 
+      componentInstance: {
+        data: {}
       },
-      result: { 
+      result: {
         then: () => of('confirm')
       },
     }),
@@ -57,6 +57,6 @@ describe('Transfer Component', () => {
   });
 
   it('Should be able to submit the transfer form', fakeAsync(() => {
-    
+
   }));
 });
