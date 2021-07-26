@@ -6,7 +6,7 @@
 
 .transaction {
     display: flex;
-    max-height: 30em;
+    max-height: 25em;
     overflow: auto;
     overflow-x: hidden;
 
@@ -31,7 +31,6 @@
 
     &-merchant {
         flex-grow: 1;
-        // text-align: center;
         width: 200%;
     }
 
